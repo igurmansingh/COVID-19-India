@@ -45,6 +45,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun bindCombinedData(data: StatewiseItem) {
+        val lastUpdatedTime = data.lastupdatedtime
+        val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm:ss")
+        lastUpdatedTv.text = "Last Updated\n ${getTimeAgo(
+            simpleDateFormat.parse(lastUpdatedTime)
+        )}"
 
         confirmedTv.text = data.confirmed
         activeTv.text = data.active
@@ -54,3 +59,24 @@ class MainActivity : AppCompatActivity() {
 }
 
 
+fun getTimeAgo(past: Date): String {
+    val now = Date()
+    val seconds = TimeUnit.MILLISECONDS.toSeconds(now.time - past.time)
+    val minutes = TimeUnit.MILLISECONDS.toMinutes(now.time - past.time)
+    val hours = TimeUnit.MILLISECONDS.toHours(now.time - past.time)
+
+    return when {
+        seconds < 60 -> {
+            "Few seconds ago"
+        }
+        minutes < 60 -> {
+            "$minutes minutes ago"
+        }
+        hours < 24 -> {
+            "$hours hour ${minutes % 60} min ago"
+        }
+        else -> {
+            SimpleDateFormat("dd/MM/yy, hh:mm a").format(past).toString()
+        }
+    }
+}

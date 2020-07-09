@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#CEE4EA"
     tools:context=".MainActivity">
 
     <RelativeLayout
@@ -18,17 +19,35 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:fontFamily="sans-serif"
+            android:elevation="20dp"
             android:text="India covid-19 \nTracker"
             android:textAllCaps="true"
-            android:textColor="@android:color/black"
+            android:textColor="#0D5573"
             android:textSize="24sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lastUpdatedTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="16dp"
+            android:text="Last Updated"
+            android:textAlignment="viewEnd"
+            android:textAllCaps="true"
+            android:textColor="#145A32"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_alignParentRight="true"
+            android:gravity="end" />
 
 
         <LinearLayout
             android:id="@+id/topContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#E7F1F5"
+            android:elevation="2dp"
             android:layout_below="@id/textView"
             android:layout_margin="16dp">
 
@@ -36,6 +55,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_margin="2dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
