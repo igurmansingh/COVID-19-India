@@ -15,7 +15,7 @@ class Splash_screen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-        val i= Intent(this,MainActivity::class.java)
+        val i= Intent(this,home_activity::class.java)
         GlobalScope.launch {
             withContext(Dispatchers.IO){
                 waits()
